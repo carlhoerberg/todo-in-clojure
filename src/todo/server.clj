@@ -1,11 +1,11 @@
-(ns my-website.server
+(ns todo.server
   (:require [noir.server :as server]))
 
-(server/load-views "src/my_website/views/")
+(server/load-views "src/todo/views")
 
 (defn -main [& m]
   (let [mode (keyword (or (first m) :dev))
         port (Integer. (get (System/getenv) "PORT" "8080"))]
     (server/start port {:mode mode
-                        :ns 'my-website})))
+                        :ns 'todo})))
 
